@@ -19,6 +19,10 @@ numberButtons.forEach((button) => {
     if (previousDisplay && currentDisplay && tempResult.innerText === "") {
       return;
     }
+    if (currentDisplay === ".") {
+      currentDisplay = "0.";
+      return;
+    }
     currentDisplay += button.innerText;
     currentOutput.innerText = currentDisplay;
   });
@@ -89,10 +93,14 @@ allClearButton.addEventListener("click", () => {
 });
 
 deleteButton.addEventListener("click", () => {
+  if (!tempResult.innerText && currentDisplay && previousDisplay) return;
   currentDisplay = currentDisplay.toString().slice(0, -1);
   currentOutput.innerText = currentDisplay;
-  if (!currentDisplay) currentOutput.innerText = "0";
-  return;
+
+  if (!currentDisplay) {
+    currentOutput.innerText = "0";
+    return;
+  }
 });
 
 window.addEventListener("keydown", (event) => {

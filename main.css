@@ -98,7 +98,7 @@ button:last-child {
   font-size: 3.5rem;
 }
 .output .temp-result {
-  color: whitesmoke;
+  color: rgba(245, 245, 245, 0.523);
   position: absolute;
   bottom: 0;
 
