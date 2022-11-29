@@ -48,7 +48,7 @@ operationButton.forEach((button) => {
     previousOutput.innerText = previousDisplay;
 
     currentDisplay = "";
-    currentOutput.innerText = currentDisplay;
+    currentOutput.innerText = "0";
     lastOperator = operator;
     tempResult.innerText = result;
   });
@@ -91,6 +91,8 @@ allClearButton.addEventListener("click", () => {
 deleteButton.addEventListener("click", () => {
   currentDisplay = currentDisplay.toString().slice(0, -1);
   currentOutput.innerText = currentDisplay;
+  if (!currentDisplay) currentOutput.innerText = "0";
+  return;
 });
 
 window.addEventListener("keydown", (event) => {
